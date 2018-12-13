@@ -1,5 +1,9 @@
 # smtebooks-DownloadAll
 
+# Important
+This script doesn't work anymore. I will try to solve it in the next week.
+
+# Description
 This bash script downloads almost every book avaliable in https://smtebooks.us. 
 
 It saves the books in directories named "0-99" (where the first 100 books should be) , "100-199" (the next 100) and so on. Many of the links are broken, so it will just download the available books.

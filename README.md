@@ -20,11 +20,20 @@ Do not use the script smtebooks-DownloadAll.sh, since it is buggy and doesn't wo
 
 ## How to use
 To generate the list with all the information of the google drive links:
-    $ sh generateDriveInfo.sh
+```bash
+$ sh generateDriveInfo.sh
+```
 To just get the links:
+```bash
     $ grep 'drive.google' driveInfo.txt > driveLinks.txt
+```
 
 To generate the list with all the information of the books stored in smtebooks.eu:
+```bash
     $ sh generateSmtebooksInfo.sh
+```
 To just get the links:
-    $ grep 'smtebooks.eu' smtebooksInfo.txt > smtebooksLinks.txt
+```bash
+$ grep 'smtebooks.eu' smtebooksInfo.txt > smtebooksLinks.txt
+```
+

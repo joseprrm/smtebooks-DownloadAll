@@ -1,24 +1,30 @@
 # smtebooks-DownloadAll
 
-# Important
-This script doesn't work anymore. I will try to solve it in the next week.
+Lists with every link to a book avaliable in https://smtebooks.eu and the scripts to generate the lists are avaliable here. The scripts to download the files are still missing, but you can download most of the files with JDownloader (explanation below).
 
-# Description
-This bash script downloads almost every book avaliable in https://smtebooks.us. 
+https://smtebooks.eu has two ways of storing the books, the old ones are in Google Drive and the new ones are in their own domain. 
 
-It saves the books in directories named "0-99" (where the first 100 books should be) , "100-199" (the next 100) and so on. Many of the links are broken, so it will just download the available books.
+The best way to download all the books in Google Drive is to feed the list to a download manager, such JDownloader, because the books are stored at Google Drive and it has a donwload limit, so it is useful to have a program that can pause downloads when the limit has been reached and resume them when you can start download again. The program that downloads the books has to know how to download from Google Drive, becouse the large files can't be downloaded with a simple petition. For example, aria2 doesn't know how to do it.
 
-There is a problem with the biggest files, since [smtebooks.us] use Google Drive, sometimes they can't be donwloaded, directly through wget. In this case, they have to be downloaded through a web browser. To know which files suffer from this problem, the temporary solution is to go to every folder that the script created and look for files whose name is just a number. Then open https://smtebooks.us/getfile/ followed by the number those files have in your browser. For example, if you find a file whose name is 1823, you should go to link https://smtebooks.us/getfile/1823.
+If you want to make a script to download the files, look at [gdown](https://github.com/wkentaro/gdown), a python module that knows how to download from Google Drive properly.
+
+The best way to download the books stored in https://smtebooks.eu would be to make a script to download them, since most programs don't know how to download from websites protected with 'DDoS protection by Cloudflare'. This is still missing, I will try to implement it in the near future. 
+
+You will see that in driveInfo.txt and driveLinks.txt, there are numbers that don't have a link in the line below. This is because the book is no longer avaliable. There are links that don't work anymore in the list.
+
+Do not use the script smtebooks-DownloadAll.sh, since it is buggy and doesn't work. However, it may be useful to get ideas to write the scripts that download the books.
 
 ## Dependencies
-- wget
+- wget (install via your distro package manager)
+- cfscrape (sudo pip install cfscrape)
 
-## To execute
-Just run:
+## How to use
+To generate the list with all the information of the google drive links:
+    $ sh generateDriveInfo.sh
+To just get the links:
+    $ grep 'drive.google' driveInfo.txt > driveLinks.txt
 
-	$ sh smtebooks-DownloadAll.sh
-
-## Things to improve
-- It downloads the books one by one, it could be improved if it made several donwloads at a time.
-- Fix the problem with the big files or make a script that opens all of theme in your browser.
-
+To generate the list with all the information of the books stored in smtebooks.eu:
+    $ sh generateSmtebooksInfo.sh
+To just get the links:
+    $ grep 'smtebooks.eu' smtebooksInfo.txt > smtebooksLinks.txt

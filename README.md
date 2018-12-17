@@ -25,12 +25,12 @@ $ sh generateDriveInfo.sh
 ```
 To just get the links:
 ```bash
-    $ grep 'drive.google' driveInfo.txt > driveLinks.txt
+$ grep 'drive.google' driveInfo.txt > driveLinks.txt
 ```
 
 To generate the list with all the information of the books stored in smtebooks.eu:
 ```bash
-    $ sh generateSmtebooksInfo.sh
+$ sh generateSmtebooksInfo.sh
 ```
 To just get the links:
 ```bash
